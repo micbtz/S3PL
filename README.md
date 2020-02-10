@@ -1,0 +1,14 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# S3PL: Shrinkage estimation of the three-parameter logistic model
+
+Estimation of the Three Parameter Logistic (3PL) model using penalized
+likelihood estimation and bias reduction methodology.
+
+## Installation
+
+``` r
+#install.packages("devtools")
+devtools::install_github("micbtz/S3PL", build_vignettes = TRUE)
+```
