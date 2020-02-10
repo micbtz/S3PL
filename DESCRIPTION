@@ -1,0 +1,14 @@
+Package: S3PL
+Type: Package
+Title: Shrinkage Estimation of the Three-Parameter Logistic Model
+Version: 1.0.0
+Date: 2019-09-04
+Author: Michela Battauz, Ruggero Bellio
+Maintainer: Michela Battauz <michela.battauz@uniud.it>
+Description: Estimation of the Three Parameter Logistic (3PL) model using penalized likelihood estimation and bias reduction methodology.
+License: GPL-2 | GPL-3
+Imports: Rcpp, mirt, statmod, equateIRT, TMB, nleqslv
+LinkingTo: Rcpp, RcppArmadillo, TMB, RcppEigen
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+

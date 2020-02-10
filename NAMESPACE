@@ -1,0 +1,14 @@
+useDynLib(S3PL, .registration=TRUE); useDynLib(BR3PL)
+importFrom(Rcpp, evalCpp)
+importFrom("graphics", "abline", "legend", "lines", "par", "plot", "points", "title")
+importFrom("stats", "dbeta", "dnorm", "optim", "plogis", "qlogis", "rnorm", "runif", "cov", "rbinom")
+importFrom('statmod', "gauss.quad.prob","gauss.quad")
+importFrom("equateIRT","import.mirt")
+importFrom("mirt","mirt")
+importFrom("parallel","detectCores")
+importFrom("nleqslv", "nleqslv")
+
+export(plot.tpl,print.tpl,simtpl,tpl)
+
+S3method(print, tpl)
+S3method(plot, tpl)

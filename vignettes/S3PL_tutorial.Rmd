@@ -1,0 +1,119 @@
+---
+title: "The R Package S3PL: A Tutorial"
+output: 
+ rmarkdown::html_document:
+  toc: true
+  toc_float: true
+  number_sections: false
+  theme: spacelab
+  highlight: pygments
+vignette: >
+ %\VignetteIndexEntry{The R Package S3PL: A Tutorial}
+ %\VignetteEngine{knitr::rmarkdown}
+ %\VignetteEncoding{UTF-8}
+---
+
+# Preliminaries
+
+Load the package S3PL
+
+```{r}
+library("S3PL")
+```
+
+and simulate a dataset from a 3PL model.
+
+```{r}
+set.seed(1)
+dataset <- simtpl(n = 1000, diff = rnorm(30), discr = rbeta(30, 3, 3) * 0.6 + 0.7, 
+                            guess = rbeta(30, 3, 5) * 0.4)
+```
+
+# Estimation
+
+## Penalized maximum likelihood 
+
+Estimate the item parameters using penalized maximum likelihood estimation.
+The maximum likelihood estimates are computed by default.
+The vector of tuning parameters is specified in `lambda`.
+If `cv` is `TRUE`, K-fold cross-validation is performed to select
+the tuning parameter. The default number of folds is 5, which can be 
+changed using argument `K`.
+
+```{r,message = FALSE}
+mod <- tpl(data = dataset, penalized = TRUE, lambda = seq(0.01, 0.5, by = 0.01), cv = TRUE)
+mod
+```
+
+The estimates are given in the usual IRT parameterization:
+$$
+p_{ij}={\rm Pr}(X_{ij}=1| \theta_i;a_j,b_j,c_j) =
+c_j+(1-c_j)\frac{\exp\{ a_j(\theta_i-b_{j})\}}{1+\exp \{ a_j(\theta_i-b_{j}) \}}.
+$$
+
+The parameterization used to estimate the parameters is the following:
+$$
+\pi_{ij}=F(\beta_{3j})+\{1-F(\beta_{3j})\}\frac{\exp (\beta_{1j}+\beta_{2j}\theta_i)}
+{1+\exp (\beta_{1j}+\beta_{2j}\theta_i)}
+$$
+with
+$$
+F(\beta_{3j})=\frac{\exp(\beta_{3j})}{1+\exp(\beta_{3j})} \, .
+$$
+To display the estimates using this parameterization set `IRTparam = FALSE`.
+
+```{r}
+print(mod, IRTparam = FALSE)
+```
+
+### Plot the results
+
+The `plot` function displays the results on a graph.
+The first plot shows the cross-validation error agains $\lambda$.
+The other graphs show the regularization path for each type of parameter.
+By default, only the guessing parameters are shown using the IRT parameterization.
+
+```{r, fig.width=10, fig.height=5}
+plot(mod)
+```
+
+To plot the estimates using the parameterization used for estimation
+set `IRTparam = FALSE`.
+
+```{r, fig.width=10, fig.height=5}
+plot(mod, IRTparam = FALSE)
+```
+
+To show the other parameters set `onlyGuess = FALSE`.
+
+```{r, fig.width=10, fig.height=10}
+plot(mod, onlyGuess = FALSE)
+```
+
+Setting both arguments to `FALSE`, all parameters are plotted
+using the parameterization used for estimation.
+
+```{r, fig.width=10, fig.height=10}
+plot(mod, IRTparam = FALSE, onlyGuess = FALSE)
+```
+
+
+
+
+## Bias reduction methodology
+
+Estimate the parameters using the bias reduction methodology, and two cores.
+
+```{r,message = FALSE}
+modBR <- tpl(data = dataset, BR = TRUE, ncores = 2)
+modBR
+print(modBR, IRTparam = FALSE)
+```
+
+The empirical approximation is used by default.
+To use the Monte Carlo approximation set `empirical` to `FALSE`.
+The number of replications for the Monte Carlo approximation 
+are speficied in argument `M` and are set to 5000 by default.
+
+
+
