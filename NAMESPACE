@@ -7,8 +7,9 @@ importFrom("equateIRT","import.mirt")
 importFrom("mirt","mirt")
 importFrom("parallel","detectCores")
 importFrom("nleqslv", "nleqslv")
+importFrom("numDeriv","jacobian")
 
-export(plot.tpl,print.tpl,simtpl,tpl)
+export(plot.tpl,print.tpl,simtpl,tpl,fit3pl_ridgepen)
 
 S3method(print, tpl)
 S3method(plot, tpl)

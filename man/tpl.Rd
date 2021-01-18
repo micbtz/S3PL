@@ -6,14 +6,16 @@ Estimation of a 3PL model using maximum likelihood estimation, penalized maximum
 estimation and the bias reduction methodology.
 }
 \usage{
-tpl(data, penalized = FALSE, BR = FALSE, lambda = 0, cv = FALSE, K = 5, nq = 21, 
-    empirical = TRUE, M = 5000, ncores = NULL, trace = TRUE, init_BR = FALSE)
+tpl(data, penalized = FALSE, BR = FALSE, lambda = 0, InfCrit = FALSE, cv = FALSE,  
+    K = 5, nq = 21, empirical = TRUE, M = 5000, ncores = NULL, trace = TRUE, 
+    init_BR = FALSE)
 }
 \arguments{
  \item{data}{a dataframe.}
  \item{penalized}{logical. If \code{TRUE} ridge-type penalization is applied.}
  \item{BR}{logical. If \code{TRUE} the bias reduction methodology is applied.}
  \item{lambda}{vector of tuning parameters to perform ridge-type penalization.}
+ \item{InfCrit}{logical. If \code{TRUE} the information criteria AIC and BIC are computed.}
  \item{cv}{logical. If \code{TRUE} K-fold cross-validation is performed to select \eqn{\lambda}.}
  \item{K}{number of folds for cross-validation.}
  \item{nq}{number of quadrature points.}
@@ -28,12 +30,20 @@ An object of class \code{tpl} with components:
 \item{est_MLE}{vector of maximum likelihood estimates.}
 \item{logLik}{log-likelihood value at maximum likelihood estimates.}
 \item{conv_MLE}{convergence of maximum likelihood estimation.}
+\item{AIC_MLE}{}
+\item{BIC_MLE}{}
 \item{est_pen}{matrix of penalized maximum likelihood estimates obtained for each \eqn{\lambda}.}
 \item{conv_pen}{vector convergence of maximum likelihood estimation; one for each \eqn{\lambda}.}
-\item{est_pen_sel}{vector of penalized maximum likelihood estimates at the selected value of \eqn{\lambda}.}
+\item{AIC_pen}{}
+\item{BIC_pen}{}
+\item{lambda_sel_AIC}{selected value of \eqn{\lambda}.}
+\item{lambda_sel_BIC}{selected value of \eqn{\lambda}.}
+\item{est_pen_sel_AIC}{vector of penalized maximum likelihood estimates at the selected value of \eqn{\lambda}.}
+\item{est_pen_sel_BIC}{vector of penalized maximum likelihood estimates at the selected value of \eqn{\lambda}.}
 \item{cv_est}{list of matrixes of item parameter estimates for each value of \eqn{\lambda}. Each matrix contains the estimates for each of the K folds.}
 \item{cv_lik}{list of vectors of log-likelihood values computed on the validation set for each value of \eqn{\lambda}.}
-\item{lambda_sel}{selected value of \eqn{\lambda}.}
+\item{lambda_sel_cv}{selected value of \eqn{\lambda}.}
+\item{est_pen_sel_cv}{vector of penalized maximum likelihood estimates at the selected value of \eqn{\lambda}.}
 \item{lambda}{vector of values for \eqn{\lambda}.}
 \item{est_br}{vector of estimates obtained with the bias reduction methodology.}
 \item{conv_br}{convergence of the bias reduction method.}

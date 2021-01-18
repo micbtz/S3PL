@@ -9,3 +9,7 @@ gradIRTlikRcppA <- function(par, data, pen, nodes, weights, lambda = 0) {
     .Call(`_S3PL_gradIRTlikRcppA`, par, data, pen, nodes, weights, lambda)
 }
 
+grad_i_IRTlikRcppA <- function(par, data, pen, nodes, weights, lambda = 0) {
+    .Call(`_S3PL_grad_i_IRTlikRcppA`, par, data, pen, nodes, weights, lambda)
+}
+
