@@ -4,7 +4,7 @@ Title: Shrinkage Estimation of the Three-Parameter Logistic Model
 Version: 1.1.0
 Date: 2020-10-16
 Author: anonimous
-Maintainer: anonimous
+Maintainer: anonimous <anonimous@mail.com>
 Description: Estimation of the Three Parameter Logistic (3PL) model using penalized likelihood estimation and bias reduction methodology.
 License: GPL-2 | GPL-3
 Imports: Rcpp, mirt, statmod, equateIRT, TMB, nleqslv, numDeriv
