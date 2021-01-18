@@ -13,6 +13,3 @@ data(math)
 \format{
 	A dataframe with 3843 rows and 14 columns.
 }
-\author{
-	Michela Battauz, Ruggero Bellio
-}

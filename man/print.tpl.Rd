@@ -33,5 +33,5 @@ where \eqn{a_j = \beta_{2j}} and \eqn{b_j = -\beta_{1j}/\beta_{2j}}.
 \seealso{
 	\code{\link{tpl}}
 }
-\author{Michela Battauz, Ruggero Bellio}
+
 

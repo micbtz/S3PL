@@ -72,5 +72,5 @@ modBR
 print(modBR, IRTparam = FALSE)
 
 }
-\author{Michela Battauz, Ruggero Bellio}
+
 

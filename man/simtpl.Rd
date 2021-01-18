@@ -26,5 +26,5 @@ dataset <- simtpl(n = 1000, diff = rnorm(30), discr = rbeta(30, 3, 3) * 0.6 + 0.
   guess = rbeta(30, 3, 5) * 0.4)
 head(dataset)
 }
-\author{Michela Battauz, Ruggero Bellio}
+
 

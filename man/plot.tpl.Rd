@@ -50,5 +50,5 @@ plot(mod, IRTparam = FALSE)
 plot(mod, onlyGuess = FALSE)
 plot(mod, IRTparam = FALSE, onlyGuess = FALSE)
 }
-\author{Michela Battauz, Ruggero Bellio}
+
 
