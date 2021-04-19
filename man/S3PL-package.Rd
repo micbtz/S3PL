@@ -16,7 +16,7 @@ Estimation of the Three Parameter Logistic (3PL) model using penalized likelihoo
 Maintainer: \packageMaintainer{S3PL}
 }
 \references{
-Battauz, M. and Bellio, R. (2021), Shrinkage estimation of the three‐parameter logistic model. Br J Math Stat Psychol. https://doi.org/10.1111/bmsp.12241
+Battauz, M. and Bellio, R. (2021). Shrinkage estimation of the three‐parameter logistic model. Br J Math Stat Psychol. https://doi.org/10.1111/bmsp.12241
 }
 %\keyword{ package }
 \examples{
