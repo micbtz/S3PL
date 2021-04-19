@@ -12,3 +12,7 @@ likelihood estimation and bias reduction methodology.
 #install.packages("devtools")
 devtools::install_github("micbtz/S3PL", build_vignettes = TRUE)
 ```
+
+## References
+
+Battauz, M. and Bellio, R. (2021), Shrinkage estimation of the three‐parameter logistic model. Br J Math Stat Psychol. https://doi.org/10.1111/bmsp.12241
