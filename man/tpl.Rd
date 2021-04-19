@@ -53,7 +53,7 @@ An object of class \code{tpl} with components:
 %\details{
 %}
 \references{
-Battauz, M. and Bellio, R. (2021). Shrinkage estimation of the three‐parameter logistic model. Br J Math Stat Psychol. https://doi.org/10.1111/bmsp.12241
+Battauz, M. and Bellio, R. (2021). Shrinkage estimation of the three-parameter logistic model. Br J Math Stat Psychol. https://doi.org/10.1111/bmsp.12241
 }
 \examples{
 # simulate the data
